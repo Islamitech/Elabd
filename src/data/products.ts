@@ -129,6 +129,22 @@ export const productsData: ProductItem[] = [
     featured: false
   },
   {
+    id: 'silver-shadow-grey',
+    category: 'imported',
+    nameAr: 'رخام سيلفر شادو رمادي عنكبوتي',
+    nameEn: 'Silver Shadow Spider-Vein Marble',
+    originAr: 'محاجر تركية وإيطالية نخب أول',
+    originEn: 'Select Turkish & Italian Quarries',
+    descriptionAr: 'لوحة فنية انسيابية من الرمادي الفاتح تتشابك فيها شبكة عروق كلسية بيضاء دقيقة تشبه نسج العنكبوت، مثالي للمساحات الشاسعة ومداخل الفنادق والفلل.',
+    descriptionEn: 'A breathtaking light silver-grey canvas interwoven with delicate, spiderweb calcite filaments, delivering sublime architectural elegance for open-concept layouts.',
+    image: '/company/slabs/silver_shadow_grey_slab.jpg',
+    finishesAr: ['تلميع كريستالي مرآة', 'مطفي حريري'],
+    finishesEn: ['Crystal Mirror Polish', 'Silk Honed'],
+    recommendedUsesAr: ['أرضيات صالات فسيحة', 'مداخل قصور', 'تكسيات جدارية متصلة'],
+    recommendedUsesEn: ['Grand Salon Flooring', 'Palace Foyers', 'Continuous Wall Cladding'],
+    featured: true
+  },
+  {
     id: 'nero-marquina',
     category: 'imported',
     nameAr: 'رخام نيرو ماركينا أسود ملكي',
