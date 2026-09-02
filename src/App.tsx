@@ -9,10 +9,13 @@ import { WhyUs } from './components/WhyUs';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { QuoteModal } from './components/QuoteModal';
+import { ExpoSection } from './components/ExpoSection';
+import { ExpoInviteModal } from './components/ExpoInviteModal';
 
 export const App: React.FC = () => {
   const [lang, setLang] = useState<Language>('ar');
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
+  const [isExpoInviteOpen, setIsExpoInviteOpen] = useState(false);
   const [prefilledMaterial, setPrefilledMaterial] = useState('');
 
   // Update document language and direction when language state changes
@@ -49,6 +52,7 @@ export const App: React.FC = () => {
         lang={lang}
         onToggleLang={toggleLanguage}
         onOpenQuote={handleOpenGeneralQuote}
+        onOpenExpoInvite={() => setIsExpoInviteOpen(true)}
       />
 
       {/* Main Sections */}
@@ -71,6 +75,12 @@ export const App: React.FC = () => {
         {/* Featured Projects Gallery */}
         <Projects lang={lang} />
 
+        {/* Official Stone Africa Expo 2026 Participation & VIP Invitations */}
+        <ExpoSection
+          lang={lang}
+          onOpenInviteModal={() => setIsExpoInviteOpen(true)}
+        />
+
         {/* Why Choose Us */}
         <WhyUs lang={lang} />
 
@@ -87,6 +97,13 @@ export const App: React.FC = () => {
         onClose={() => setIsQuoteOpen(false)}
         lang={lang}
         prefilledMaterial={prefilledMaterial}
+      />
+
+      {/* Stone Africa 2026 VIP Invitation Pass Modal */}
+      <ExpoInviteModal
+        isOpen={isExpoInviteOpen}
+        onClose={() => setIsExpoInviteOpen(false)}
+        lang={lang}
       />
     </div>
   );

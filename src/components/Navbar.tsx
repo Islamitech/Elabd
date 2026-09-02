@@ -7,9 +7,10 @@ interface NavbarProps {
   lang: Language;
   onToggleLang: () => void;
   onOpenQuote: () => void;
+  onOpenExpoInvite: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ lang, onToggleLang, onOpenQuote }) => {
+export const Navbar: React.FC<NavbarProps> = ({ lang, onToggleLang, onOpenQuote, onOpenExpoInvite }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const t = translations[lang];
@@ -27,6 +28,7 @@ export const Navbar: React.FC<NavbarProps> = ({ lang, onToggleLang, onOpenQuote 
     { href: '#about', label: t.nav.about },
     { href: '#products', label: t.nav.products },
     { href: '#projects', label: t.nav.projects },
+    { href: '#expo', label: t.nav.expo },
     { href: '#why-us', label: t.nav.whyUs },
     { href: '#contact', label: t.nav.contact },
   ];
@@ -35,10 +37,26 @@ export const Navbar: React.FC<NavbarProps> = ({ lang, onToggleLang, onOpenQuote 
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-charcoal-950/90 backdrop-blur-md shadow-lg border-b border-gold-400/20 py-2.5' 
-          : 'bg-gradient-to-b from-charcoal-950/80 to-transparent py-4'
+          ? 'bg-charcoal-950/95 backdrop-blur-md shadow-lg border-b border-gold-400/20 py-2' 
+          : 'bg-gradient-to-b from-charcoal-950/90 to-transparent py-3'
       }`}
     >
+      {/* Top Event Announcement Bar */}
+      <div className="bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600 text-charcoal-950 text-[11px] sm:text-xs font-bold py-1 px-4 text-center">
+        <div className="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+          <span>
+            {lang === 'ar' 
+              ? '🏛️ جناح اكزوتيك العبد في معرض Stone Africa 2026 بمركز القاهرة الدولي للمؤتمرات (12 - 15 نوفمبر)' 
+              : '🏛️ Exotic El-Abd at Stone Africa 2026 • Cairo International Convention Center (12 - 15 Nov)'}
+          </span>
+          <button
+            onClick={onOpenExpoInvite}
+            className="underline hover:text-black font-extrabold cursor-pointer transition-colors"
+          >
+            {lang === 'ar' ? '[احجز بطاقة دعوتك VIP مجاناً]' : '[Reserve Free VIP Pass]'}
+          </button>
+        </div>
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           

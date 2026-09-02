@@ -7,6 +7,7 @@ export const translations = {
       about: "من نحن",
       products: "منتجاتنا",
       projects: "مشاريعنا",
+      expo: "معرض ستون أفريكا 2026",
       whyUs: "لماذا نحن",
       contact: "اتصل بنا",
       getQuote: "احصل على عرض سعر",
@@ -109,6 +110,40 @@ export const translations = {
         }
       ]
     },
+    expo: {
+      badge: "المعرض الدولي للأحجار الطبيعية والرخام والجرانيت",
+      title: "دعوة رسمية لزيارة جناح اكزوتيك العبد في معرض Stone Africa 2026",
+      subtitle: "يسعدنا ويشرفنا استقبال السادة المطورين العقاريين، الاستشاريين، مهندسي الديكور، والمشترين الدوليين في جناحنا الحصري بمركز القاهرة الدولي للمؤتمرات (CICC).",
+      dates: "12 – 15 نوفمبر 2026",
+      location: "مركز القاهرة الدولي للمؤتمرات (CICC) - مدينة نصر، القاهرة",
+      booth: "القاعة 1 - الجناح الملكي A10",
+      stats: [
+        { val: "+6,000", label: "زائر متخصص ومشتري دولي" },
+        { val: "23", label: "دولة مشاركة ووفود تجارية" },
+        { val: "+100", label: "عارض من كبرى شركات العالم" },
+        { val: "95%", label: "نسبة تأكيد الصفقات والشراكات" }
+      ],
+      inviteBoxTitle: "احجز بطاقة دعوتك الرسمية (VIP Invitation)",
+      inviteBoxDesc: "سجل بياناتك للحصول على بطاقة دخول رقمية مجانية مع ترتيب جلسة استشارية خاصة مع مهندسي وقيادات الشركة داخل الجناح.",
+      ctaButton: "احجز بطاقة الدعوة الآن مجاناً",
+      viewHighlights: "استعراض أبرز لقطات المؤتمر السابق",
+      modal: {
+        title: "طلب بطاقة دعوة VIP - معرض Stone Africa 2026",
+        subtitle: "مركز القاهرة الدولي للمؤتمرات (CICC) | 12 - 15 نوفمبر 2026",
+        fullName: "الاسم الكريم",
+        company: "الشركة / المؤسسة",
+        role: "الصفة المهنية",
+        roles: ["مطور عقاري", "مهندس استشاري / معماري", "مصمم ديكور داخلي", "تاجر / مستورد رخام وجرانيت", "مقاول تشطيبات فاخرة", "مالك فيلا / قصر خاص"],
+        phone: "رقم الهاتف / واتساب (+20)",
+        email: "البريد الإلكتروني",
+        visitDay: "اليوم المفضل للزيارة",
+        days: ["الخميس 12 نوفمبر", "الجمعة 13 نوفمبر", "السبت 14 نوفمبر", "الأحد 15 نوفمبر", "جميع الأيام"],
+        submitBtn: "استخراج وتأكيد بطاقة الدعوة",
+        whatsappBtn: "إرسال وتأكيد الدعوة عبر واتساب",
+        successTitle: "تم تأكيد تسجيل دعوتك بنجاح! 🏛️",
+        successMsg: "يسعدنا جداً حضوركم وتشريفكم لجناحنا. تم حفظ بياناتكم وسيقوم فريق العلاقات العامة بالتواصل معكم وتأكيد موعد اللقاء."
+      }
+    },
     quote: {
       modalTitle: "احصل على عرض سعر فوري مخصص",
       modalSubtitle: "أدخل مواصفات مشروعك للحصول على تقدير دقيق وخطة توريد من خبرائنا الهندسية.",
@@ -178,6 +213,7 @@ export const translations = {
       about: "About Us",
       products: "Our Products",
       projects: "Projects",
+      expo: "Stone Africa Expo",
       whyUs: "Why Choose Us",
       contact: "Contact Us",
       getQuote: "Request a Quote",
@@ -279,6 +315,40 @@ export const translations = {
           desc: "Massive slab stock in Egypt ready for immediate inspection and installation."
         }
       ]
+    },
+    expo: {
+      badge: "International Exhibition for Natural Stone, Marble & Granite",
+      title: "Official Invitation to Exotic El-Abd Pavilion at Stone Africa 2026",
+      subtitle: "We are privileged to invite developers, architectural consultants, interior designers, and global stone buyers to our exclusive pavilion at the Cairo International Convention Center (CICC).",
+      dates: "12 – 15 November 2026",
+      location: "Cairo International Convention & Exhibition Center (CICC) - Nasr City, Cairo, Egypt",
+      booth: "Hall 1 - Royal Pavilion A10",
+      stats: [
+        { val: "+6,000", label: "Specialized Attendees & Global Buyers" },
+        { val: "23", label: "Participating Countries & Delegations" },
+        { val: "+100", label: "World-Class Exhibitors" },
+        { val: "95%", label: "Deals & Partnerships Retention" }
+      ],
+      inviteBoxTitle: "Reserve Your Official VIP Invitation Pass",
+      inviteBoxDesc: "Register now to receive your complimentary digital VIP pass and schedule a private stone consultation session with our executive engineers inside the pavilion.",
+      ctaButton: "Reserve VIP Pass Now (Complimentary)",
+      viewHighlights: "Browse Previous Expo Highlights",
+      modal: {
+        title: "Request VIP Invitation Pass - Stone Africa 2026",
+        subtitle: "Cairo International Convention Center (CICC) | 12 - 15 November 2026",
+        fullName: "Full Name",
+        company: "Company / Organization",
+        role: "Professional Role",
+        roles: ["Property Developer", "Consultant Architect", "Interior Designer", "Stone Trader / Importer", "Luxury Contractor", "Private Estate Owner"],
+        phone: "Phone Number / WhatsApp (+20)",
+        email: "Email Address",
+        visitDay: "Preferred Attendance Day",
+        days: ["Thursday 12 Nov", "Friday 13 Nov", "Saturday 14 Nov", "Sunday 15 Nov", "All Days"],
+        submitBtn: "Generate & Confirm VIP Pass",
+        whatsappBtn: "Confirm Invitation via WhatsApp",
+        successTitle: "Your VIP Pass Has Been Reserved! 🏛️",
+        successMsg: "It will be our utmost honor to welcome you to our pavilion. Our PR & engineering team will contact you with your pass details."
+      }
     },
     quote: {
       modalTitle: "Request an Instant Custom Quote",
