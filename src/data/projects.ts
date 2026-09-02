@@ -2,6 +2,20 @@ import { ProjectItem } from '../types';
 
 export const projectsData: ProjectItem[] = [
   {
+    id: 'project-sheikh-zayed-floating-stairs',
+    titleAr: 'درج معلق رخامي بإضاءة ليد مخفية - فيلا بالم هيلز',
+    titleEn: 'Floating Illuminated Marble Staircase - Palm Hills Villa',
+    locationAr: 'الشيخ زايد - 6 أكتوبر، مصر',
+    locationEn: 'Sheikh Zayed, Giza, Egypt',
+    typeAr: 'درج معلق وتجاويف إضاءة مخفية',
+    typeEn: 'Floating Cantilevered Steps with Concealed LED',
+    category: 'residential',
+    materialsUsedAr: 'رخام داكن معالج، قص دقيق بالـ CNC، وشطف ميكانيكي',
+    materialsUsedEn: 'Precision-Cut Dark Marble, CNC Grooving & LED Profiles',
+    image: '/company/projects/stairs/marble_floating_stairs_led.jpg',
+    year: '2025'
+  },
+  {
     id: 'project-new-cairo-palace',
     titleAr: 'قصر الفخامة الملكية - التجمع الخامس',
     titleEn: 'Royal Splendor Palace - New Cairo',
@@ -12,7 +26,21 @@ export const projectsData: ProjectItem[] = [
     category: 'residential',
     materialsUsedAr: 'كلكتا جولد إيطالي، جلالة إكسترا، وأونيكس ذهبي مضيء',
     materialsUsedEn: 'Calacatta Gold, Galala Extra & Backlit Onyx',
-    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
+    image: '/company/slabs/white_bookmatch_pair_slabs.jpg',
+    year: '2025'
+  },
+  {
+    id: 'project-classical-stairs-cairo',
+    titleAr: 'سلم رخامي داخلي مع وزرة كلاسيكية محفورة',
+    titleEn: 'Interior Marble Staircase with Classical Carved Skirting',
+    locationAr: 'القاهرة الجديدة - التجمع الخامس، مصر',
+    locationEn: 'New Cairo, Egypt',
+    typeAr: 'درج وسلالم مع وزرات ديكورية مفرزة',
+    typeEn: 'Custom Steps with Classical Moldings & Step Lights',
+    category: 'residential',
+    materialsUsedAr: 'رخام رمادي فاخر، تشطيب إيطالي، ومجرى ليد مدمج',
+    materialsUsedEn: 'High-Grade Grey Marble, Italian Polished Chamfers & LED',
+    image: '/company/projects/stairs/marble_stairs_led_profile.jpg',
     year: '2025'
   },
   {
@@ -28,6 +56,20 @@ export const projectsData: ProjectItem[] = [
     materialsUsedEn: 'Double Black Granite, Statuario Venato & Triesta Grey',
     image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
     year: '2025'
+  },
+  {
+    id: 'project-curved-stairs-villa',
+    titleAr: 'درج حلزوني رخامي متناسق - فيلا سكنية',
+    titleEn: 'Curved Marble Staircase with Ambient Footlights',
+    locationAr: 'الساحل الشمالي، مصر',
+    locationEn: 'North Coast, Egypt',
+    typeAr: 'درج حلزوني وتكسيات جدارية متصلة',
+    typeEn: 'Curved Marble Steps & Cohesive Wall Cladding',
+    category: 'residential',
+    materialsUsedAr: 'رخام كريمي دافئ مع رخام داكن وإضاءة هادئة',
+    materialsUsedEn: 'Warm Cream Marble with Contrast Risers & Ambient Glow',
+    image: '/company/projects/stairs/marble_stairs_led_1.jpg',
+    year: '2024'
   },
   {
     id: 'project-marassi-resort',
@@ -56,20 +98,6 @@ export const projectsData: ProjectItem[] = [
     materialsUsedEn: 'Translucent Amber Onyx & Spanish Nero Marquina',
     image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80',
     year: '2024'
-  },
-  {
-    id: 'project-sheikh-zayed-villa',
-    titleAr: 'فيلا مودرن راقية - بالم هيلز الشيخ زايد',
-    titleEn: 'Modern Residence - Palm Hills Sheikh Zayed',
-    locationAr: 'الشيخ زايد - 6 أكتوبر، مصر',
-    locationEn: 'Sheikh Zayed, Giza, Egypt',
-    typeAr: 'درج معلق رخامي ومطابخ حديثة',
-    typeEn: 'Floating Marble Staircase & Gourmet Kitchen',
-    category: 'residential',
-    materialsUsedAr: 'رخام سيلفيا مصري، وجرانيت أسود معالج ملمس جلد',
-    materialsUsedEn: 'Egyptian Silvia & Leather-Finish Black Granite',
-    image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80',
-    year: '2023'
   },
   {
     id: 'project-zamalek-penthouse',

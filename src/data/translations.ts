@@ -42,6 +42,13 @@ export const translations = {
         { title: "معامل هندسية وتصميم", desc: "فريق هندسي متخصص في مطابقة العروق (Bookmatch) وقص المخططات بمقاسات دقيقة." },
         { title: "ضمان الجودة والمتانة", desc: "معالجات كيميائية وعوازل حماية تضمن بقاء الرخام ببريقه مدى الحياة." }
       ],
+      founderTitle: "كلمة رئيس مجلس الإدارة والمؤسس",
+      founderName: "أ. حاتم العبد",
+      founderRole: "رئيس مجلس الإدارة ومؤسس اكزوتيك العبد للرخام",
+      founderQuote: "هدفنا منذ اليوم الأول ليس فقط توريد الرخام، بل إحياء عظمة النحت والحجر الطبيعي المصري برؤية هندسية معاصرة ترتقي لأرقى المعايير العالمية. نحن نشرف بأنفسنا على كل كتلة ولوح حجر لضمان فخامة لا تُضاهى لعملائنا في مصر والعالم.",
+      exportBadge: "صنع في مصر • تصدير دولي",
+      exportTitle: "من قلب مصر إلى كبرى المشروعات الدولية",
+      exportDesc: "بفخر واعتزاز، نصدّر أجود أنواع الرخام والجرانيت المصري بحاويات شحن مجهزة ومغلفة بأعلى معايير الحماية الدولية للمطورين حول العالم.",
       exploreCatalog: "استعرض كتالوج المنتجات"
     },
     products: {
@@ -248,6 +255,13 @@ export const translations = {
         { title: "Advanced Engineering Studio", desc: "Laser-measured slab rendering and synchronized bookmatching." },
         { title: "Lifetime Protective Finishing", desc: "Specialized nanotechnology resin treatments for eternal shine." }
       ],
+      founderTitle: "Chairman & Founder's Vision",
+      founderName: "Mr. Hatem El-Abd",
+      founderRole: "Chairman & Founder of Exotic El-Abd Marble",
+      founderQuote: "From day one, our mission was never just about supplying stone—it was about honoring Egypt's millennia-old stone legacy with cutting-edge engineering precision. We personally oversee the quarrying and fabrication of each slab to guarantee unmatched luxury for our clients.",
+      exportBadge: "Made in Egypt • Global Export",
+      exportTitle: "From Egypt's Heart to Iconic Global Landmarks",
+      exportDesc: "Proudly quarrying, fabricating, and exporting premium Egyptian marble and granite worldwide in certified international shipping containers.",
       exploreCatalog: "Browse Catalog"
     },
     products: {

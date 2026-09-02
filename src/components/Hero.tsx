@@ -9,9 +9,10 @@ interface HeroProps {
 }
 
 const backgroundImages = [
-  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85',
-  'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2000&q=85',
-  'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=85'
+  '/company/slabs/calacatta_gold_luxury_slab.jpg',
+  '/company/slabs/white_bookmatch_pair_slabs.jpg',
+  '/company/slabs/calacatta_slab_mirror.jpg',
+  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85'
 ];
 
 export const Hero: React.FC<HeroProps> = ({ lang, onOpenQuote }) => {
