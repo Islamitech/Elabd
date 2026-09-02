@@ -16,5 +16,16 @@
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/routes/**/*",
+    "src/lib/**/*",
+    "src/integrations/**/*",
+    "src/components/ui/**/*",
+    "src/data/craftsmen.ts",
+    "src/routeTree.gen.ts",
+    "src/router.d.ts"
+  ]
 }
