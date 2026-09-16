@@ -64,12 +64,14 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenQuote }) => {
         </div>
 
         {/* Main Headline */}
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-4 sm:mb-6 leading-[1.25] sm:leading-tight">
-          <span className="block text-white mb-1.5 reveal visible" style={{ transitionDelay: '0.1s' }}>
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 sm:mb-6 leading-[1.35] sm:leading-[1.28]">
+          <span className="block text-white mb-1 sm:mb-2 pb-1 reveal visible" style={{ transitionDelay: '0.1s' }}>
             {t.hero.titleMain}
           </span>
-          <span className="block gold-text-gradient drop-shadow-md reveal visible" style={{ transitionDelay: '0.25s' }}>
-            {t.hero.titleAccent}
+          <span className="block reveal visible" style={{ transitionDelay: '0.25s' }}>
+            <span className="inline-block gold-text-gradient drop-shadow-md pb-2 sm:pb-3 pt-1">
+              {t.hero.titleAccent}
+            </span>
           </span>
         </h1>
 

@@ -299,7 +299,14 @@ html[dir="rtl"] .marquee-track {
 .gold-text-gradient {
   background: linear-gradient(135deg, #d4af37 0%, #fef3c7 40%, #c5a059 80%, #947124 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding-bottom: 0.22em;
+  margin-bottom: -0.22em;
+  padding-top: 0.05em;
+  padding-inline: 0.04em;
+  overflow: visible;
 }
 
 .gold-glow {
