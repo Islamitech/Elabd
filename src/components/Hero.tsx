@@ -12,10 +12,10 @@ interface HeroProps {
 
 const backgroundImages = [
   '/identity/showroom_panorama_cinematic.jpg',
+  '/identity/grand_marble_staircase.jpg',
   '/identity/luxury_architectural_interior.jpg',
-  '/identity/elabd_showroom_facade.jpg',
-  '/showcase/exotic_190.jpg',
-  '/showcase/exotic_122.jpg'
+  '/identity/luxury_marble_hall.jpg',
+  '/identity/elabd_showroom_facade.jpg'
 ];
 
 export const Hero: React.FC<HeroProps> = ({ lang, onOpenQuote }) => {
