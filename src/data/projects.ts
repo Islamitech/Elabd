@@ -12,7 +12,7 @@ export const projectsData: ProjectItem[] = [
     category: 'residential',
     materialsUsedAr: 'رخام داكن معالج، قص دقيق بالـ CNC، وشطف ميكانيكي',
     materialsUsedEn: 'Precision-Cut Dark Marble, CNC Grooving & LED Profiles',
-    image: '/company/projects/stairs/marble_floating_stairs_led.jpg',
+    image: '/showcase/exotic_063.jpg',
     year: '2025'
   },
   {
@@ -26,21 +26,21 @@ export const projectsData: ProjectItem[] = [
     category: 'residential',
     materialsUsedAr: 'كلكتا جولد إيطالي، جلالة إكسترا، وأونيكس ذهبي مضيء',
     materialsUsedEn: 'Calacatta Gold, Galala Extra & Backlit Onyx',
-    image: '/company/slabs/white_bookmatch_pair_slabs.jpg',
+    image: '/showcase/exotic_190.jpg',
     year: '2025'
   },
   {
     id: 'project-classical-stairs-cairo',
-    titleAr: 'سلم رخامي داخلي مع وزرة كلاسيكية محفورة',
-    titleEn: 'Interior Marble Staircase with Classical Carved Skirting',
+    titleAr: 'سلم رخامي داخلي أزرق ملكي نادر - فيلا سكنية',
+    titleEn: 'Interior Royal Blue Bahia Marble Staircase',
     locationAr: 'القاهرة الجديدة - التجمع الخامس، مصر',
     locationEn: 'New Cairo, Egypt',
     typeAr: 'درج وسلالم مع وزرات ديكورية مفرزة',
     typeEn: 'Custom Steps with Classical Moldings & Step Lights',
     category: 'residential',
-    materialsUsedAr: 'رخام رمادي فاخر، تشطيب إيطالي، ومجرى ليد مدمج',
-    materialsUsedEn: 'High-Grade Grey Marble, Italian Polished Chamfers & LED',
-    image: '/company/projects/stairs/marble_stairs_led_profile.jpg',
+    materialsUsedAr: 'رخام أزرق ملكي أزول ماكوباس، تشطيب إيطالي، ومجرى ليد مدمج',
+    materialsUsedEn: 'High-Grade Azul Macaubas Blue Marble, Italian Chamfers & LED',
+    image: '/showcase/exotic_068.jpg',
     year: '2025'
   },
   {
@@ -80,9 +80,9 @@ export const projectsData: ProjectItem[] = [
     typeAr: 'أرضيات تراس ومسابح وحمامات ماستر',
     typeEn: 'Infinity Pool Deck & Master Suites',
     category: 'residential',
-    materialsUsedAr: 'رخام صني منيا معتق، وترافنتينو أوف وايت',
-    materialsUsedEn: 'Antiqued Sunny Menia & Ivory Travertine',
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80',
+    materialsUsedAr: 'رخام صني منيا معتق، وترافنتينو أوف وايت وكلاكتا إيطالي',
+    materialsUsedEn: 'Antiqued Sunny Menia, Ivory Travertine & Calacatta Marble',
+    image: '/showcase/exotic_043.jpg',
     year: '2024'
   },
   {
@@ -91,12 +91,12 @@ export const projectsData: ProjectItem[] = [
     titleEn: 'Boutique Hotel & Lounge - El Gouna',
     locationAr: 'البحر الأحمر، مصر',
     locationEn: 'Red Sea, Egypt',
-    typeAr: 'بار أونيكس مضيء وتكسيات معمارية',
-    typeEn: 'Backlit Onyx Bar & Architectural Cladding',
+    typeAr: 'بار وجدارية أونيكس مضيء وتكسيات معمارية',
+    typeEn: 'Backlit Onyx Feature Wall & Architectural Cladding',
     category: 'hospitality',
-    materialsUsedAr: 'أونيكس عنبري شفاف، ونيرو ماركينا إسباني',
-    materialsUsedEn: 'Translucent Amber Onyx & Spanish Nero Marquina',
-    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80',
+    materialsUsedAr: 'أونيكس عنبري شفاف 4 قطع بوكماتش، ونيرو ماركينا إسباني',
+    materialsUsedEn: '4-Piece Bookmatched Translucent Amber Onyx & Spanish Nero Marquina',
+    image: '/showcase/exotic_122.jpg',
     year: '2024'
   },
   {

@@ -15,7 +15,7 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
   };
 
   return (
-    <footer className="bg-charcoal-950 text-white border-t border-gold-400/20 pt-16 pb-8 relative overflow-hidden">
+    <footer className="bg-charcoal-950 text-white border-t border-gold-400/20 pt-16 pb-24 md:pb-8 relative overflow-hidden">
       {/* Subtle Gold Ambient Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-1 bg-gradient-to-r from-transparent via-gold-400 to-transparent opacity-50" />
 
@@ -78,7 +78,7 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
                 </svg>
               </a>
               <a
-                href="https://wa.me/201001234567"
+                href="https://wa.me/201020592155"
                 target="_blank"
                 rel="noreferrer"
                 className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-300 hover:text-emerald-400 hover:border-emerald-400/50 transition-all"
@@ -174,7 +174,7 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
               </p>
               <p className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-gold-400 shrink-0" />
-                <span dir="ltr">+20 100 123 4567</span>
+                <a href="tel:+201020592155" dir="ltr" className="hover:text-gold-300 transition-colors">+20 10 2059 2155</a>
               </p>
               <p className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-gold-400 shrink-0" />

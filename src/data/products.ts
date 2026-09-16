@@ -90,7 +90,7 @@ export const productsData: ProductItem[] = [
     originEn: 'Carrara Region & In-House Precision Bookmatch Line',
     descriptionAr: 'تحفة هندسية تعكس قمة البراعة في مطابقة عروق الرخام بشكل مرآة متناظر بالمليمتر، خيار القصور والفنادق للجداريات الرئيسية وشاشات الاستقبال.',
     descriptionEn: 'The pinnacle of architectural stone engineering; mirror-matched slab pairs creating majestic geometric symmetry for grand foyers and statement walls.',
-    image: '/company/slabs/white_bookmatch_pair_slabs.jpg',
+    image: '/showcase/exotic_225.jpg',
     finishesAr: ['تلميع مرآة فائق', 'مطفي حريري'],
     finishesEn: ['Mirror Polish', 'Silk Honed'],
     recommendedUsesAr: ['جداريات الصالونات الملكية', 'مداخل الفلل والقصور', 'خلفيات الاستقبال'],
@@ -210,6 +210,38 @@ export const productsData: ProductItem[] = [
 
   // Onyx
   {
+    id: 'bespoke-onyx-bathtub',
+    category: 'onyx',
+    nameAr: 'بانيو أونيكس طبيعي مضيء إعجازي',
+    nameEn: 'Monolithic Backlit Natural Amber Onyx Bathtub',
+    originAr: 'نحت يدوي خاص من كتلة أونيكس طبيعية واحدة',
+    originEn: 'Single Monolithic Onyx Boulder Sculpted by Hand',
+    descriptionAr: 'قطعة فنية فريدة منحوتة يدوياً من كتلة أونيكس طبيعية مصمتة ومزودة بنظام إضاءة LED غائر يتوهج بدفء ساحر في حمامات الماستر والفلل الفاخرة.',
+    descriptionEn: 'A masterwork sculpted from a solid boulder of translucent amber onyx, featuring internal lighting that transforms master suites into ethereal sanctuaries.',
+    image: '/showcase/exotic_038.jpg',
+    finishesAr: ['تلميع كريستالي ناعم مع معالجة عزل مائي نانو'],
+    finishesEn: ['Nano-Sealed Crystal Polish'],
+    recommendedUsesAr: ['حمامات الماستر الملكية', 'أجنحة الفنادق والسبا VIP', 'قطع ديكورية استثنائية'],
+    recommendedUsesEn: ['Royal Master Bathrooms', 'Luxury Presidential Suites', 'Hero Centerpieces'],
+    featured: true
+  },
+  {
+    id: 'quatrofall-granite-fountain',
+    category: 'granite',
+    nameAr: 'شلالات ونوافير كواتروفال جرانيت طبيعي مضيء',
+    nameEn: 'Quatrofall Natural Granite Outdoor Waterfall',
+    originAr: 'جرانيت طبيعي مصمت مصنع بورش الشركة',
+    originEn: 'Monolithic Natural Granite Fabricated In-House',
+    descriptionAr: 'شلالات ونوافير حدائق وحمامات سباحة منحوتة من الجرانيت الطبيعي بإنارة LED مدمجة وأبعاد قابلة للتخصيص الكامل حسب مساحة الفيلا والحديقة.',
+    descriptionEn: 'Architectural landscape waterfall crafted from solid natural granite with integrated LED lighting and customizable proportions for luxury gardens and pools.',
+    image: '/showcase/exotic_011.jpg',
+    finishesAr: ['تشطيب فليميد وشطف ميكانيكي مقاوم للعوامل الجوية'],
+    finishesEn: ['Weatherproof Flamed & Honed Precision'],
+    recommendedUsesAr: ['حمامات سباحة الفلل', 'حدائق القصور واللاندسكيب', 'مداخل الكمبوندات'],
+    recommendedUsesEn: ['Villa Swimming Pools', 'Palace Landscape Gardens', 'Resort Entrances'],
+    featured: true
+  },
+  {
     id: 'onyx-golden-amber',
     category: 'onyx',
     nameAr: 'أونيكس ذهبي عنبري مضيء حقيقي',
@@ -218,7 +250,7 @@ export const productsData: ProductItem[] = [
     originEn: 'Exclusive Quarries & In-House Fabrication',
     descriptionAr: 'تحفة طبيعية نادرة تسمح بنفاذ الضوء بنسبة عالية؛ تموجات عنبرية دافئة تتوهج كالذهب المسكوب عند تزويدها بإضاءة LED خلفية، مصورة مباشرة من لوح المعرض الحقيقي.',
     descriptionEn: 'An ethereal translucent masterpiece allowing spectacular light permeability; organic honey-amber waves glowing like liquid gold under LED backlighting, photographed directly from our gallery slab.',
-    image: '/company/slabs/backlit_golden_amber_onyx_real.jpg',
+    image: '/showcase/exotic_122.jpg',
     finishesAr: ['تلميع كريستالي شفاف معالج'],
     finishesEn: ['Translucent Resin-Sealed Polish'],
     recommendedUsesAr: ['جداريات مضيئة بالصالات', 'بار وكونترات إضاءة', 'أعمدة ديكورية'],
@@ -238,6 +270,6 @@ export const productsData: ProductItem[] = [
     finishesAr: ['تلميع فائق الشفافية'],
     finishesEn: ['Extra-Clear High Gloss'],
     recommendedUsesAr: ['حمامات VIP', 'ديكورات خلفيات التلفزيون', 'قطع فنية مضيئة'],
-    recommendedUsesEn: ['VIP Spa Ensuites', 'Media Unit Accents', 'Backlit Art Sculptures']
+    recommendedUsesEn: ['VIP Bathrooms', 'TV Feature Accents', 'Illuminated Art Elements']
   }
 ];

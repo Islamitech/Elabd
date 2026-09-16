@@ -15,8 +15,8 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
   const founderPhotos = [
     {
       src: '/company/owner/hatem_elabd_showroom.jpg',
-      labelAr: 'أ. حاتم العبد بجانب أندر ألواح الرخام الإيطالي الفاخر',
-      labelEn: 'Mr. Hatem El-Abd with exclusive Italian luxury slabs'
+      labelAr: 'د. حاتم العبد بجانب أندر ألواح الرخام الإيطالي الفاخر',
+      labelEn: 'Dr. Hatem El-Abd with exclusive Italian luxury slabs'
     },
     {
       src: '/company/owner/hatem_elabd_machinery.jpg',
@@ -50,24 +50,24 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
                 <img
                   src={founderPhotos[activePhoto].src}
                   alt={isRtl ? founderPhotos[activePhoto].labelAr : founderPhotos[activePhoto].labelEn}
-                  className="w-full h-[480px] object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-[340px] sm:h-[420px] lg:h-[480px] object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/90 via-charcoal-950/25 to-transparent" />
                 
                 {/* Embedded Logo badge */}
-                <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-xl bg-charcoal-950/80 backdrop-blur-md border border-gold-400/30">
-                  <img src="/logo.jpg" alt="Logo" className="w-6 h-6 rounded-full object-cover" />
-                  <span className="text-xs font-bold text-gold-300">Exotic El-Abd</span>
+                <div className="absolute top-3.5 left-3.5 flex items-center gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-charcoal-950/80 backdrop-blur-md border border-gold-400/30">
+                  <img src="/logo.jpg" alt="Logo" className="w-5 h-5 sm:w-6 sm:h-6 rounded-full object-cover" />
+                  <span className="text-[11px] sm:text-xs font-bold text-gold-300">Exotic El-Abd</span>
                 </div>
 
                 {/* Photo selector thumbnails inside card */}
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-2 p-2 rounded-2xl bg-charcoal-950/85 backdrop-blur-md border border-gold-400/30">
-                  <div className="flex items-center gap-2">
+                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex items-center justify-between gap-2 p-1.5 sm:p-2 rounded-2xl bg-charcoal-950/90 backdrop-blur-md border border-gold-400/30">
+                  <div className="flex items-center gap-1.5 sm:gap-2">
                     {founderPhotos.map((p, idx) => (
                       <button
                         key={idx}
                         onClick={() => setActivePhoto(idx)}
-                        className={`w-11 h-11 rounded-xl overflow-hidden border-2 transition-all ${
+                        className={`w-9 h-9 sm:w-11 sm:h-11 rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
                           activePhoto === idx ? 'border-gold-400 scale-105 shadow-gold-sm' : 'border-white/20 opacity-60 hover:opacity-100'
                         }`}
                         title={isRtl ? p.labelAr : p.labelEn}
@@ -76,7 +76,7 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
                       </button>
                     ))}
                   </div>
-                  <span className="text-[11px] text-gold-300 font-semibold truncate max-w-[170px]">
+                  <span className="text-[10px] sm:text-[11px] text-gold-300 font-semibold truncate max-w-[130px] sm:max-w-[180px]">
                     {isRtl ? founderPhotos[activePhoto].labelAr : founderPhotos[activePhoto].labelEn}
                   </span>
                 </div>
@@ -149,14 +149,14 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
         </div>
 
         {/* Founder & Chairman's Vision Card */}
-        <div className="rounded-3xl bg-gradient-to-r from-charcoal-950 via-charcoal-900 to-black border-2 border-gold-400/30 p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+        <div className="rounded-3xl bg-gradient-to-r from-charcoal-950 via-charcoal-900 to-black border-2 border-gold-400/30 p-5 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-80 h-80 bg-gold-500/5 rounded-full blur-3xl pointer-events-none" />
           
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             
             {/* Portrait Thumbnail (4 cols) */}
             <div className="md:col-span-4 flex flex-col items-center md:items-start text-center md:text-start">
-              <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden border-4 border-gold-400 shadow-gold-md mb-4 group">
+              <div className="relative w-36 h-36 sm:w-48 sm:h-48 rounded-full overflow-hidden border-4 border-gold-400 shadow-gold-md mb-4 group">
                 <img 
                   src="/company/owner/hatem_elabd_showroom.jpg" 
                   alt="Hatem El-Abd" 
@@ -164,7 +164,7 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
                 />
                 <div className="absolute inset-0 bg-gold-400/10 mix-blend-overlay" />
               </div>
-              <h3 className="text-xl font-bold text-white">
+              <h3 className="text-lg sm:text-xl font-bold text-white">
                 {t.about.founderName}
               </h3>
               <p className="text-xs font-semibold text-gold-400 mt-1">
@@ -180,13 +180,13 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
               </div>
 
               <div className="relative">
-                <Quote className="w-10 h-10 text-gold-400/20 absolute -top-4 -start-4 pointer-events-none" />
-                <p className="text-base sm:text-lg text-gray-200 font-light leading-relaxed italic relative z-10 ps-4 border-s-2 border-gold-400/50">
+                <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-gold-400/20 absolute -top-3 -start-3 sm:-top-4 sm:-start-4 pointer-events-none" />
+                <p className="text-sm sm:text-lg text-gray-200 font-light leading-relaxed italic relative z-10 ps-3 sm:ps-4 border-s-2 border-gold-400/50">
                   "{t.about.founderQuote}"
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center gap-6 pt-2 text-xs text-gray-400">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2 text-xs text-gray-400">
                 <span className="flex items-center gap-1.5 text-gold-300">
                   <Award className="w-4 h-4 text-gold-400" />
                   <span>{lang === 'ar' ? 'رؤية معمارية متكاملة' : 'Integrated Architectural Vision'}</span>
@@ -206,7 +206,7 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
         </div>
 
         {/* Made in Egypt & Global Export Showcase */}
-        <div className="rounded-3xl bg-white/[0.02] border border-white/10 p-8 sm:p-10">
+        <div className="rounded-3xl bg-white/[0.02] border border-white/10 p-5 sm:p-8 lg:p-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-5 space-y-4">

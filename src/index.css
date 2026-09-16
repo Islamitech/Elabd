@@ -37,6 +37,7 @@
 /* Custom sleek scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #0f172a;
@@ -48,3 +49,18 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #d4af37;
 }
+
+/* Hide scrollbar for clean mobile horizontal pill navigation */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* iOS Safe Area Padding Utilities */
+.safe-bottom {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+

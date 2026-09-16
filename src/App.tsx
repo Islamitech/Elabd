@@ -11,6 +11,7 @@ import { Footer } from './components/Footer';
 import { QuoteModal } from './components/QuoteModal';
 import { ExpoSection } from './components/ExpoSection';
 import { ExpoInviteModal } from './components/ExpoInviteModal';
+import { MobileBottomBar } from './components/MobileBottomBar';
 
 export const App: React.FC = () => {
   const [lang, setLang] = useState<Language>('ar');
@@ -56,7 +57,7 @@ export const App: React.FC = () => {
       />
 
       {/* Main Sections */}
-      <main className="flex-1">
+      <main className="flex-1 pb-16 md:pb-0">
         {/* Hero Section */}
         <Hero
           lang={lang}
@@ -90,6 +91,13 @@ export const App: React.FC = () => {
 
       {/* Footer */}
       <Footer lang={lang} />
+
+      {/* Sticky Mobile Quick-Action Bottom Bar */}
+      <MobileBottomBar
+        lang={lang}
+        onOpenQuote={handleOpenGeneralQuote}
+        onOpenExpoInvite={() => setIsExpoInviteOpen(true)}
+      />
 
       {/* Interactive Quote Calculator & Order Modal */}
       <QuoteModal
