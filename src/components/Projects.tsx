@@ -3,6 +3,8 @@ import { Eye, MapPin, Building, Calendar, X } from 'lucide-react';
 import { Language, ProjectItem } from '../types';
 import { translations } from '../data/translations';
 import { projectsData } from '../data/projects';
+import { ProgressiveImage } from './ProgressiveImage';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 interface ProjectsProps {
   lang: Language;
@@ -11,6 +13,7 @@ interface ProjectsProps {
 export const Projects: React.FC<ProjectsProps> = ({ lang }) => {
   const [activeCategory, setActiveCategory] = useState<'all' | 'residential' | 'commercial' | 'hospitality'>('all');
   const [lightboxProject, setLightboxProject] = useState<ProjectItem | null>(null);
+  const { ref: sectionRef, isVisible } = useScrollReveal<HTMLDivElement>();
   const t = translations[lang];
 
   const filteredProjects = activeCategory === 'all'
@@ -19,10 +22,10 @@ export const Projects: React.FC<ProjectsProps> = ({ lang }) => {
 
   return (
     <section id="projects" className="py-24 bg-charcoal-950 text-white relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className={`text-center max-w-3xl mx-auto mb-12 reveal ${isVisible ? 'visible' : ''}`}>
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold-400/10 border border-gold-400/30 text-gold-300 text-xs font-bold uppercase tracking-wider mb-3">
             <Building className="w-3.5 h-3.5 text-gold-400" />
             <span>{t.projects.tag}</span>
@@ -53,8 +56,8 @@ export const Projects: React.FC<ProjectsProps> = ({ lang }) => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {filteredProjects.map((project) => {
+        <div key={activeCategory} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 tab-content-enter">
+          {filteredProjects.map((project, projectIndex) => {
             const title = lang === 'ar' ? project.titleAr : project.titleEn;
             const location = lang === 'ar' ? project.locationAr : project.locationEn;
             const type = lang === 'ar' ? project.typeAr : project.typeEn;
@@ -63,16 +66,17 @@ export const Projects: React.FC<ProjectsProps> = ({ lang }) => {
             return (
               <div
                 key={project.id}
-                className="group relative rounded-3xl overflow-hidden bg-charcoal-900 border border-white/10 hover:border-gold-400/50 shadow-xl transition-all duration-500 flex flex-col"
+                className={`group relative rounded-3xl overflow-hidden bg-charcoal-900 border border-white/10 hover:border-gold-400/50 shadow-xl transition-all duration-500 flex flex-col reveal ${isVisible ? 'visible' : ''} stagger-${(projectIndex % 6) + 1}`}
               >
                 {/* Image Container */}
                 <div 
                   className="relative h-56 sm:h-72 overflow-hidden cursor-pointer"
                   onClick={() => setLightboxProject(project)}
                 >
-                  <img
+                  <ProgressiveImage
                     src={project.image}
                     alt={title}
+                    wrapperClassName="absolute inset-0"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
@@ -142,11 +146,11 @@ export const Projects: React.FC<ProjectsProps> = ({ lang }) => {
       {/* Lightbox Modal (Mobile Optimized) */}
       {lightboxProject && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/95 backdrop-blur-md animate-fadeIn"
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/95 backdrop-blur-md modal-overlay-enter"
           onClick={() => setLightboxProject(null)}
         >
           <div
-            className="relative max-w-4xl w-full bg-charcoal-900 rounded-3xl overflow-hidden border border-gold-400/40 shadow-2xl max-h-[92vh] flex flex-col"
+            className="relative max-w-4xl w-full bg-charcoal-900 rounded-3xl overflow-hidden border border-gold-400/40 shadow-2xl max-h-[92vh] flex flex-col modal-content-enter"
             onClick={(e) => e.stopPropagation()}
           >
             <button

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, MessageCircle } from 'lucide-react';
 import { Language } from '../types';
 import { translations } from '../data/translations';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 interface ContactProps {
   lang: Language;
@@ -10,6 +11,7 @@ interface ContactProps {
 export const Contact: React.FC<ContactProps> = ({ lang }) => {
   const t = translations[lang];
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { ref, isVisible } = useScrollReveal<HTMLDivElement>();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,6 +21,12 @@ export const Contact: React.FC<ContactProps> = ({ lang }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const message = encodeURIComponent(
+      lang === 'ar'
+        ? `*استفسار جديد من موقع اكزوتيك العبد*\n\n• الاسم: ${formData.name}\n• الهاتف: ${formData.phone}\n• البريد: ${formData.email || 'غير مذكور'}\n\n*تفاصيل الطلب:*\n${formData.message}`
+        : `*New inquiry from Exotic El-Abd website*\n\n• Name: ${formData.name}\n• Phone: ${formData.phone}\n• Email: ${formData.email || 'Not provided'}\n\n*Request details:*\n${formData.message}`
+    );
+    window.open(`https://wa.me/201020592155?text=${message}`, '_blank', 'noopener,noreferrer');
     setIsSubmitted(true);
     setTimeout(() => {
       setIsSubmitted(false);
@@ -28,10 +36,10 @@ export const Contact: React.FC<ContactProps> = ({ lang }) => {
 
   return (
     <section id="contact" className="py-24 bg-white relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className={`text-center max-w-3xl mx-auto mb-16 reveal ${isVisible ? 'visible' : ''}`}>
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold-400/10 border border-gold-400/30 text-gold-600 text-xs font-bold uppercase tracking-wider mb-3">
             <MapPin className="w-3.5 h-3.5 text-gold-500" />
             <span>{t.contact.tag}</span>
@@ -48,7 +56,7 @@ export const Contact: React.FC<ContactProps> = ({ lang }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
           {/* Left Form (6 cols) */}
-          <div className="lg:col-span-6 bg-marble-offwhite p-5 sm:p-8 lg:p-10 rounded-3xl border border-gray-200/80 shadow-sm">
+          <div className={`lg:col-span-6 bg-marble-offwhite p-5 sm:p-8 lg:p-10 rounded-3xl border border-gray-200/80 shadow-sm reveal-right ${isVisible ? 'visible' : ''}`}>
             <h3 className="text-xl sm:text-2xl font-bold text-charcoal-900 mb-2">
               {t.contact.formTitle}
             </h3>
@@ -131,7 +139,7 @@ export const Contact: React.FC<ContactProps> = ({ lang }) => {
                   className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 text-charcoal-950 font-bold text-xs sm:text-sm shadow-gold-sm hover:shadow-gold-md active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer min-h-[44px]"
                 >
                   <Send className="w-4 h-4" />
-                  <span>{t.contact.sendBtn}</span>
+                  <span>{lang === 'ar' ? 'إرسال الطلب عبر واتساب' : 'Send via WhatsApp'}</span>
                 </button>
               </form>
             )}
@@ -151,7 +159,7 @@ export const Contact: React.FC<ContactProps> = ({ lang }) => {
           </div>
 
           {/* Right Contact Details & Google Maps Iframe (6 cols) */}
-          <div className="lg:col-span-6 space-y-5 sm:space-y-6">
+          <div className={`lg:col-span-6 space-y-5 sm:space-y-6 reveal-left ${isVisible ? 'visible' : ''}`}>
             
             {/* Contact Details Card */}
             <div className="p-5 sm:p-8 rounded-3xl bg-charcoal-950 text-white border border-gold-400/30 shadow-xl space-y-5 sm:space-y-6">

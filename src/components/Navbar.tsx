@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Globe, Calculator, Menu, X, Sparkles, PhoneCall } from 'lucide-react';
 import { Language } from '../types';
 import { translations } from '../data/translations';
+import { useActiveSection } from '../hooks/useActiveSection';
 
 interface NavbarProps {
   lang: Language;
@@ -10,10 +11,13 @@ interface NavbarProps {
   onOpenExpoInvite: () => void;
 }
 
+const sectionIds = ['hero', 'about', 'products', 'projects', 'expo', 'why-us', 'contact'];
+
 export const Navbar: React.FC<NavbarProps> = ({ lang, onToggleLang, onOpenQuote, onOpenExpoInvite }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const t = translations[lang];
+  const activeSection = useActiveSection(sectionIds);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,13 +28,13 @@ export const Navbar: React.FC<NavbarProps> = ({ lang, onToggleLang, onOpenQuote,
   }, []);
 
   const navLinks = [
-    { href: '#hero', label: t.nav.home },
-    { href: '#about', label: t.nav.about },
-    { href: '#products', label: t.nav.products },
-    { href: '#projects', label: t.nav.projects },
-    { href: '#expo', label: t.nav.expo },
-    { href: '#why-us', label: t.nav.whyUs },
-    { href: '#contact', label: t.nav.contact },
+    { href: '#hero', label: t.nav.home, id: 'hero' },
+    { href: '#about', label: t.nav.about, id: 'about' },
+    { href: '#products', label: t.nav.products, id: 'products' },
+    { href: '#projects', label: t.nav.projects, id: 'projects' },
+    { href: '#expo', label: t.nav.expo, id: 'expo' },
+    { href: '#why-us', label: t.nav.whyUs, id: 'why-us' },
+    { href: '#contact', label: t.nav.contact, id: 'contact' },
   ];
 
   return (
@@ -80,13 +84,17 @@ export const Navbar: React.FC<NavbarProps> = ({ lang, onToggleLang, onOpenQuote,
             </div>
           </a>
 
-          {/* Desktop Navigation Links */}
+          {/* Desktop Navigation Links — with active indicator */}
           <nav className="hidden lg:flex items-center gap-6 xl:gap-7">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-gray-200 hover:text-gold-300 text-sm font-semibold transition-colors duration-200 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-gold-400 hover:after:w-full after:transition-all after:duration-300"
+                className={`text-sm font-semibold transition-colors duration-200 relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-gold-400 after:transition-all after:duration-300 ${
+                  activeSection === link.id
+                    ? 'text-gold-300 after:w-full'
+                    : 'text-gray-200 hover:text-gold-300 after:w-0 hover:after:w-full'
+                }`}
               >
                 {link.label}
               </a>
@@ -153,7 +161,7 @@ export const Navbar: React.FC<NavbarProps> = ({ lang, onToggleLang, onOpenQuote,
 
         {/* Mobile Dropdown Menu (Touch & Scroll Optimized) */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-3 max-h-[calc(100vh-90px)] overflow-y-auto scrollbar-none pt-3 pb-6 px-4 bg-charcoal-950/98 backdrop-blur-2xl border border-gold-400/40 rounded-3xl shadow-2xl flex flex-col gap-2.5 animate-fadeIn">
+          <div className="lg:hidden mt-3 max-h-[calc(100vh-90px)] overflow-y-auto scrollbar-none pt-3 pb-6 px-4 bg-charcoal-950/98 backdrop-blur-2xl border border-gold-400/40 rounded-3xl shadow-2xl flex flex-col gap-2.5 modal-content-enter">
             <div className="flex items-center justify-between pb-2 border-b border-white/10">
               <span className="text-xs text-gold-400 font-bold uppercase tracking-wider">
                 {lang === 'ar' ? 'قائمة التصفح' : 'Navigation Menu'}
@@ -171,10 +179,14 @@ export const Navbar: React.FC<NavbarProps> = ({ lang, onToggleLang, onOpenQuote,
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-gray-200 hover:text-gold-300 text-sm font-semibold py-2.5 px-3 rounded-xl hover:bg-white/5 active:bg-gold-400/10 transition-colors flex items-center justify-between"
+                className={`text-sm font-semibold py-2.5 px-3 rounded-xl transition-colors flex items-center justify-between ${
+                  activeSection === link.id
+                    ? 'text-gold-300 bg-gold-400/10'
+                    : 'text-gray-200 hover:text-gold-300 hover:bg-white/5 active:bg-gold-400/10'
+                }`}
               >
                 <span>{link.label}</span>
-                <span className="text-xs text-gold-400/40">›</span>
+                <span className={`text-xs ${activeSection === link.id ? 'text-gold-400' : 'text-gold-400/40'}`}>›</span>
               </a>
             ))}
 

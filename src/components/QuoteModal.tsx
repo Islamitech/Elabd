@@ -82,11 +82,11 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-charcoal-950/85 backdrop-blur-md animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-charcoal-950/85 backdrop-blur-md modal-overlay-enter"
       onClick={onClose}
     >
       <div 
-        className="bg-white rounded-t-3xl sm:rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl border border-gold-400/30 relative max-h-[92vh] flex flex-col"
+        className="bg-white rounded-t-3xl sm:rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl border border-gold-400/30 relative max-h-[92vh] flex flex-col modal-content-enter"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}

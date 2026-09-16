@@ -1,6 +1,7 @@
 import React from 'react';
 import { Percent, ArrowRight, ArrowLeft, Calculator, ShieldCheck } from 'lucide-react';
 import { Language } from '../types';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 interface PromoSectionProps {
   lang: Language;
@@ -9,16 +10,17 @@ interface PromoSectionProps {
 
 export const PromoSection: React.FC<PromoSectionProps> = ({ lang, onOpenQuote }) => {
   const isAr = lang === 'ar';
+  const { ref, isVisible } = useScrollReveal<HTMLDivElement>();
 
   return (
     <section className="py-14 sm:py-20 bg-charcoal-950 text-white relative overflow-hidden border-y border-gold-400/20">
       {/* Background Subtle Luxury Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gold-500/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+        <div className={`text-center max-w-3xl mx-auto mb-10 sm:mb-14 reveal ${isVisible ? 'visible' : ''}`}>
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold-400/15 border border-gold-400/30 text-gold-300 text-xs font-bold uppercase tracking-wider mb-3">
             <Percent className="w-3.5 h-3.5 text-gold-400" />
             <span>{isAr ? 'عروض حصرية للمشاريع والقصور' : 'Exclusive Palace & Project Rates'}</span>
@@ -38,7 +40,7 @@ export const PromoSection: React.FC<PromoSectionProps> = ({ lang, onOpenQuote })
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           
           {/* Main Wide Promotional Banner (7 cols) */}
-          <div className="lg:col-span-7 flex flex-col justify-between rounded-3xl overflow-hidden border border-gold-400/30 bg-gradient-to-br from-charcoal-900 to-black shadow-2xl group">
+          <div className={`lg:col-span-7 flex flex-col justify-between rounded-3xl overflow-hidden border border-gold-400/30 bg-gradient-to-br from-charcoal-900 to-black shadow-2xl group reveal-right ${isVisible ? 'visible' : ''}`}>
             <div className="relative overflow-hidden aspect-[16/9] w-full">
               <img
                 src="/identity/promo_banner_wide.jpg"
@@ -73,7 +75,7 @@ export const PromoSection: React.FC<PromoSectionProps> = ({ lang, onOpenQuote })
           </div>
 
           {/* Official Price Packages Board (5 cols) */}
-          <div className="lg:col-span-5 rounded-3xl overflow-hidden border border-gold-400/30 bg-gradient-to-br from-charcoal-900 to-black shadow-2xl flex flex-col group">
+          <div className={`lg:col-span-5 rounded-3xl overflow-hidden border border-gold-400/30 bg-gradient-to-br from-charcoal-900 to-black shadow-2xl flex flex-col group reveal-left ${isVisible ? 'visible' : ''}`}>
             <div className="relative overflow-hidden w-full flex-1 flex items-center justify-center p-3 bg-black/40">
               <img
                 src="/identity/price_catalog_board.jpg"

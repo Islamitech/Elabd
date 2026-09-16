@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Calendar, MapPin, Building, Award, Ticket, Users, Globe, ExternalLink, Sparkles, Clock } from 'lucide-react';
 import { Language } from '../types';
 import { translations } from '../data/translations';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 interface ExpoSectionProps {
   lang: Language;
@@ -40,6 +41,7 @@ const expoImages = [
 ];
 
 export const ExpoSection: React.FC<ExpoSectionProps> = ({ lang, onOpenInviteModal }) => {
+  const { ref, isVisible } = useScrollReveal<HTMLDivElement>();
   const t = translations[lang];
   const expoT = t.expo;
 
@@ -68,7 +70,7 @@ export const ExpoSection: React.FC<ExpoSectionProps> = ({ lang, onOpenInviteModa
       {/* Subtle Glows */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-full max-w-5xl h-96 bg-gold-400/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div ref={ref} className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 reveal ${isVisible ? 'visible' : ''}`}>
         
         {/* Section Header */}
         <div className="text-center max-w-4xl mx-auto mb-16">

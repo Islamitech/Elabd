@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ShieldCheck, CheckCircle2, ArrowRight, ArrowLeft, Award, Sparkles, Quote, Globe, PackageCheck, Factory } from 'lucide-react';
 import { Language } from '../types';
 import { translations } from '../data/translations';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 interface AboutProps {
   lang: Language;
@@ -11,6 +12,10 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
   const t = translations[lang];
   const isRtl = lang === 'ar';
   const [activePhoto, setActivePhoto] = useState<number>(0);
+
+  const { ref: mainRef, isVisible: mainVisible } = useScrollReveal<HTMLDivElement>();
+  const { ref: founderRef, isVisible: founderVisible } = useScrollReveal<HTMLDivElement>();
+  const { ref: exportRef, isVisible: exportVisible } = useScrollReveal<HTMLDivElement>();
 
   const founderPhotos = [
     {
@@ -39,10 +44,10 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-20">
         
         {/* Main Section: Story & Factory Overview */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div ref={mainRef} className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Visual Column (5 cols) */}
-          <div className="lg:col-span-5 relative">
+          <div className={`lg:col-span-5 relative reveal-left ${mainVisible ? 'visible' : ''}`}>
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
               {/* Main Image Container with Gold Border */}
@@ -92,7 +97,7 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
           </div>
 
           {/* Text Content Column (7 cols) */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className={`lg:col-span-7 space-y-6 reveal-right ${mainVisible ? 'visible' : ''}`}>
             
             {/* Section Tag */}
             <div className="inline-flex items-center gap-2 text-gold-400 font-bold text-sm tracking-wider uppercase">
@@ -116,7 +121,7 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
               {t.about.features.map((feat, idx) => (
                 <div 
                   key={idx} 
-                  className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-gold-400/40 transition-all duration-300 hover:bg-white/[0.06]"
+                  className={`p-4 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-gold-400/40 transition-all duration-300 hover:bg-white/[0.06] reveal ${mainVisible ? 'visible' : ''} stagger-${idx + 1}`}
                 >
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-gold-400 shrink-0 mt-0.5" />
@@ -149,7 +154,7 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
         </div>
 
         {/* Founder & Chairman's Vision Card */}
-        <div className="rounded-3xl bg-gradient-to-r from-charcoal-950 via-charcoal-900 to-black border-2 border-gold-400/30 p-5 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden">
+        <div ref={founderRef} className={`rounded-3xl bg-gradient-to-r from-charcoal-950 via-charcoal-900 to-black border-2 border-gold-400/30 p-5 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden border-glow reveal-scale ${founderVisible ? 'visible' : ''}`}>
           <div className="absolute top-0 right-0 w-80 h-80 bg-gold-500/5 rounded-full blur-3xl pointer-events-none" />
           
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
@@ -206,7 +211,7 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
         </div>
 
         {/* Made in Egypt & Global Export Showcase */}
-        <div className="rounded-3xl bg-white/[0.02] border border-white/10 p-5 sm:p-8 lg:p-10">
+        <div ref={exportRef} className={`rounded-3xl bg-white/[0.02] border border-white/10 p-5 sm:p-8 lg:p-10 reveal ${exportVisible ? 'visible' : ''}`}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-5 space-y-4">
@@ -234,7 +239,7 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
 
             {/* Real Export Photos (7 cols) */}
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="relative rounded-2xl overflow-hidden border border-gold-400/30 group shadow-lg">
+              <div className={`relative rounded-2xl overflow-hidden border border-gold-400/30 group shadow-lg reveal ${exportVisible ? 'visible' : ''} stagger-1`}>
                 <img
                   src="/company/export/container_made_in_egypt.jpg"
                   alt="Made in Egypt Container"
@@ -252,7 +257,7 @@ export const About: React.FC<AboutProps> = ({ lang }) => {
                 </div>
               </div>
 
-              <div className="relative rounded-2xl overflow-hidden border border-gold-400/30 group shadow-lg">
+              <div className={`relative rounded-2xl overflow-hidden border border-gold-400/30 group shadow-lg reveal ${exportVisible ? 'visible' : ''} stagger-2`}>
                 <img
                   src="/company/export/marble_crates_packaging.jpg"
                   alt="Marble Export Packaging Crates"

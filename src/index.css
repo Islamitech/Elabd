@@ -8,6 +8,282 @@
   }
 }
 
+/* ============================= */
+/* LOADING SCREEN                */
+/* ============================= */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #070B14;
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.loading-screen.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.05);
+}
+.loading-logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid #D4AF37;
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.3), 0 0 80px rgba(212, 175, 55, 0.1);
+  animation: loadingPulse 1.8s ease-in-out infinite;
+}
+.loading-bar-track {
+  width: 180px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  margin-top: 28px;
+  overflow: hidden;
+}
+.loading-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #D4AF37, #FEF3C4, #C5A059);
+  animation: loadingProgress 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes loadingPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(212, 175, 55, 0.3); }
+  50% { transform: scale(1.06); box-shadow: 0 0 60px rgba(212, 175, 55, 0.5); }
+}
+@keyframes loadingProgress {
+  0% { width: 0%; }
+  60% { width: 70%; }
+  100% { width: 100%; }
+}
+
+/* ============================= */
+/* SCROLL REVEAL ANIMATIONS      */
+/* ============================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger Children — add delay-N class */
+.stagger-1 { transition-delay: 0.08s; }
+.stagger-2 { transition-delay: 0.16s; }
+.stagger-3 { transition-delay: 0.24s; }
+.stagger-4 { transition-delay: 0.32s; }
+.stagger-5 { transition-delay: 0.40s; }
+.stagger-6 { transition-delay: 0.48s; }
+.stagger-7 { transition-delay: 0.56s; }
+.stagger-8 { transition-delay: 0.64s; }
+
+/* ============================= */
+/* HERO KEN BURNS                */
+/* ============================= */
+@keyframes kenBurns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.12); }
+}
+.ken-burns-active {
+  animation: kenBurns 7s ease-out forwards;
+}
+
+/* ============================= */
+/* ANIMATED GRADIENT BORDERS     */
+/* ============================= */
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(212, 175, 55, 0.3); box-shadow: 0 0 15px rgba(212, 175, 55, 0.1); }
+  50% { border-color: rgba(212, 175, 55, 0.7); box-shadow: 0 0 30px rgba(212, 175, 55, 0.25); }
+}
+.border-glow {
+  animation: borderGlow 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer-line {
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.15) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ============================= */
+/* MODAL ANIMATIONS              */
+/* ============================= */
+@keyframes modalOverlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(60px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes modalSlideUpMobile {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+.modal-overlay-enter {
+  animation: modalOverlayIn 0.3s ease-out forwards;
+}
+.modal-content-enter {
+  animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.modal-content-enter-mobile {
+  animation: modalSlideUpMobile 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ============================= */
+/* SCROLL PROGRESS BAR           */
+/* ============================= */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #D4AF37, #FEF3C4, #C5A059);
+  z-index: 9998;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* ============================= */
+/* FLOATING BACK TO TOP          */
+/* ============================= */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.back-to-top {
+  animation: fadeInUp 0.3s ease-out forwards;
+}
+
+/* ============================= */
+/* IMAGE REVEAL / PLACEHOLDER    */
+/* ============================= */
+.img-reveal {
+  opacity: 0;
+  filter: blur(10px);
+  transition: opacity 0.6s ease-out, filter 0.6s ease-out;
+}
+.img-reveal.loaded {
+  opacity: 1;
+  filter: blur(0);
+}
+
+.progressive-image {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: #e5e7eb;
+}
+.progressive-image-skeleton {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, #e5e7eb 20%, #f8fafc 45%, #e5e7eb 70%);
+  background-size: 220% 100%;
+  animation: imageShimmer 1.35s linear infinite;
+  transition: opacity 0.35s ease;
+}
+.progressive-image-media {
+  opacity: 0;
+  filter: blur(12px);
+  transition: opacity 0.5s ease, filter 0.6s ease, transform 0.7s ease;
+}
+.progressive-image.is-loaded .progressive-image-skeleton { opacity: 0; }
+.progressive-image.is-loaded .progressive-image-media {
+  opacity: 1;
+  filter: blur(0);
+}
+@keyframes imageShimmer { to { background-position: -220% 0; } }
+
+.active-glow:active { filter: drop-shadow(0 0 9px rgba(212, 175, 55, 0.65)); }
+
+@media (max-width: 639px) {
+  .modal-content-enter { animation-name: modalSlideUpMobile; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal, .reveal-left, .reveal-right, .reveal-scale { opacity: 1; transform: none; }
+}
+
+/* ============================= */
+/* MARQUEE INFINITE SCROLL       */
+/* ============================= */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes marqueeScrollRtl {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 30s linear infinite;
+}
+html[dir="rtl"] .marquee-track {
+  animation: marqueeScrollRtl 30s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ============================= */
+/* TAB CONTENT TRANSITIONS       */
+/* ============================= */
+.tab-content-enter {
+  animation: tabFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes tabFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================= */
+/* EXISTING STYLES (kept as-is)  */
+/* ============================= */
+
 /* Marble subtle background pattern */
 .marble-pattern {
   background-color: #fcfcfb;
@@ -63,4 +339,3 @@
 .safe-bottom {
   padding-bottom: max(1rem, env(safe-area-inset-bottom));
 }
-

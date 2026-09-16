@@ -2,6 +2,8 @@ import React from 'react';
 import { Users, Award, Crosshair, Layers, CheckCircle } from 'lucide-react';
 import { Language } from '../types';
 import { translations } from '../data/translations';
+import { useScrollReveal } from '../hooks/useScrollReveal';
+import { useCountUp } from '../hooks/useCountUp';
 
 interface WhyUsProps {
   lang: Language;
@@ -9,6 +11,11 @@ interface WhyUsProps {
 
 export const WhyUs: React.FC<WhyUsProps> = ({ lang }) => {
   const t = translations[lang];
+  const { ref, isVisible } = useScrollReveal<HTMLDivElement>({ threshold: 0.15 });
+  const years = useCountUp(25, isVisible, 1800, '+');
+  const projects = useCountUp(650, isVisible, 2200, '+');
+  const varieties = useCountUp(140, isVisible, 2000, '+');
+  const quality = useCountUp(100, isVisible, 1800, '', '%');
 
   const icons = [
     <Users className="w-8 h-8 text-gold-400" />,
@@ -23,10 +30,10 @@ export const WhyUs: React.FC<WhyUsProps> = ({ lang }) => {
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-72 h-72 rounded-full border border-gold-400/20 pointer-events-none" />
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-96 h-96 rounded-full border border-gold-400/10 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
+        <div className={`text-center max-w-3xl mx-auto mb-10 sm:mb-12 reveal ${isVisible ? 'visible' : ''}`}>
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold-400/10 border border-gold-400/30 text-gold-600 text-xs font-bold uppercase tracking-wider mb-3">
             <CheckCircle className="w-3.5 h-3.5 text-gold-500" />
             <span>{t.whyUs.tag}</span>
@@ -39,12 +46,26 @@ export const WhyUs: React.FC<WhyUsProps> = ({ lang }) => {
           </p>
         </div>
 
+        <div className="mb-10 grid grid-cols-2 gap-3 rounded-3xl border border-gold-400/20 bg-charcoal-950 p-3 shadow-xl sm:grid-cols-4 sm:p-5">
+          {[
+            [years, lang === 'ar' ? 'سنة خبرة' : 'Years of experience'],
+            [projects, lang === 'ar' ? 'مشروع منجز' : 'Projects delivered'],
+            [varieties, lang === 'ar' ? 'خامة مختارة' : 'Selected materials'],
+            [quality, lang === 'ar' ? 'التزام بالجودة' : 'Quality commitment'],
+          ].map(([value, label], index) => (
+            <div key={label} className={`rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-center reveal ${isVisible ? 'visible' : ''} stagger-${index + 1}`}>
+              <strong className="block text-2xl font-black text-gold-400 sm:text-3xl" dir="ltr">{value}</strong>
+              <span className="mt-1 block text-[11px] font-semibold text-gray-300 sm:text-xs">{label}</span>
+            </div>
+          ))}
+        </div>
+
         {/* 4 Icon Boxes Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {t.whyUs.points.map((point, index) => (
             <div
               key={index}
-              className="relative p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-gray-200/80 hover:border-gold-400 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between"
+              className={`relative p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-gray-200/80 hover:border-gold-400 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 group flex flex-col justify-between reveal ${isVisible ? 'visible' : ''} stagger-${index + 1}`}
             >
               <div>
                 {/* Icon Circle with Gold Shimmer */}

@@ -13,8 +13,14 @@ import { ExpoSection } from './components/ExpoSection';
 import { ExpoInviteModal } from './components/ExpoInviteModal';
 import { MobileBottomBar } from './components/MobileBottomBar';
 import { PromoSection } from './components/PromoSection';
+import { LoadingScreen } from './components/LoadingScreen';
+import { ScrollProgress } from './components/ScrollProgress';
+import { BackToTop } from './components/BackToTop';
+import { TrustedBy } from './components/TrustedBy';
+import { Testimonials } from './components/Testimonials';
 
 export const App: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(() => !sessionStorage.getItem('exotic-intro-seen'));
   const [lang, setLang] = useState<Language>('ar');
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const [isExpoInviteOpen, setIsExpoInviteOpen] = useState(false);
@@ -49,6 +55,13 @@ export const App: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-marble-offwhite text-charcoal-800">
+      {isLoading && (
+        <LoadingScreen onDone={() => {
+          sessionStorage.setItem('exotic-intro-seen', '1');
+          setIsLoading(false);
+        }} />
+      )}
+      <ScrollProgress />
       {/* Top Fixed Sticky Navbar */}
       <Navbar
         lang={lang}
@@ -64,6 +77,8 @@ export const App: React.FC = () => {
           lang={lang}
           onOpenQuote={handleOpenGeneralQuote}
         />
+
+        <TrustedBy lang={lang} />
 
         {/* About Us (Egyptian Heritage & Factory) */}
         <About lang={lang} />
@@ -92,6 +107,8 @@ export const App: React.FC = () => {
         {/* Why Choose Us */}
         <WhyUs lang={lang} />
 
+        <Testimonials lang={lang} />
+
         {/* Contact Section */}
         <Contact lang={lang} />
       </main>
@@ -105,6 +122,7 @@ export const App: React.FC = () => {
         onOpenQuote={handleOpenGeneralQuote}
         onOpenExpoInvite={() => setIsExpoInviteOpen(true)}
       />
+      <BackToTop />
 
       {/* Interactive Quote Calculator & Order Modal */}
       <QuoteModal

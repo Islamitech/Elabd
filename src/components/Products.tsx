@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
-import { Sparkles, ZoomIn, Check, Layers, MapPin, X } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Sparkles, ZoomIn, Check, Layers, MapPin, X, ChevronDown } from 'lucide-react';
 import { Language, ProductItem } from '../types';
 import { translations } from '../data/translations';
 import { productsData } from '../data/products';
+import { ProgressiveImage } from './ProgressiveImage';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 interface ProductsProps {
   lang: Language;
@@ -12,18 +14,23 @@ interface ProductsProps {
 export const Products: React.FC<ProductsProps> = ({ lang, onOpenQuoteWithProduct }) => {
   const [activeTab, setActiveTab] = useState<'all' | 'egyptian' | 'imported' | 'granite' | 'onyx'>('all');
   const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
+  const [visibleCount, setVisibleCount] = useState(8);
+  const { ref: sectionRef, isVisible } = useScrollReveal<HTMLDivElement>();
   const t = translations[lang];
 
   const filteredProducts = activeTab === 'all'
     ? productsData
     : productsData.filter(p => p.category === activeTab);
+  const visibleProducts = filteredProducts.slice(0, visibleCount);
+
+  useEffect(() => setVisibleCount(8), [activeTab]);
 
   return (
     <section id="products" className="py-24 bg-marble-offwhite relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className={`text-center max-w-3xl mx-auto mb-12 reveal ${isVisible ? 'visible' : ''}`}>
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold-400/10 border border-gold-400/30 text-gold-600 text-xs font-bold uppercase tracking-wider mb-3">
             <Sparkles className="w-3.5 h-3.5 text-gold-500" />
             <span>{t.products.tag}</span>
@@ -54,8 +61,8 @@ export const Products: React.FC<ProductsProps> = ({ lang, onOpenQuoteWithProduct
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-8">
-          {filteredProducts.map((product) => {
+        <div key={activeTab} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-8 tab-content-enter">
+          {visibleProducts.map((product, productIndex) => {
             const name = lang === 'ar' ? product.nameAr : product.nameEn;
             const origin = lang === 'ar' ? product.originAr : product.originEn;
             const desc = lang === 'ar' ? product.descriptionAr : product.descriptionEn;
@@ -64,16 +71,17 @@ export const Products: React.FC<ProductsProps> = ({ lang, onOpenQuoteWithProduct
             return (
               <div
                 key={product.id}
-                className="group rounded-3xl bg-white border border-gray-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:border-gold-400/40 transition-all duration-300 flex flex-col"
+                className={`group rounded-3xl bg-white border border-gray-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:border-gold-400/40 transition-all duration-300 flex flex-col reveal ${isVisible ? 'visible' : ''} stagger-${(productIndex % 8) + 1}`}
               >
                 {/* Image Container with Zoom Trigger */}
                 <div 
                   className="relative h-52 sm:h-56 overflow-hidden bg-gray-100 cursor-pointer"
                   onClick={() => setSelectedProduct(product)}
                 >
-                  <img
+                  <ProgressiveImage
                     src={product.image}
                     alt={name}
+                    wrapperClassName="absolute inset-0"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     loading="lazy"
                   />
@@ -150,16 +158,29 @@ export const Products: React.FC<ProductsProps> = ({ lang, onOpenQuoteWithProduct
           })}
         </div>
 
+        {visibleCount < filteredProducts.length && (
+          <div className="mt-10 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setVisibleCount((count) => count + 8)}
+              className="inline-flex min-h-[46px] items-center gap-2 rounded-full border border-gold-400/40 bg-white px-6 py-3 text-sm font-bold text-charcoal-900 shadow-sm transition-all hover:-translate-y-0.5 hover:border-gold-500 hover:shadow-gold-sm"
+            >
+              <span>{lang === 'ar' ? 'عرض المزيد من الخامات' : 'Show more materials'}</span>
+              <ChevronDown className="h-4 w-4 text-gold-600" />
+            </button>
+          </div>
+        )}
+
       </div>
 
       {/* Product Details Modal (Mobile Friendly Dialog) */}
       {selectedProduct && (
         <div 
-          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-charcoal-950/85 backdrop-blur-md animate-fadeIn"
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-charcoal-950/85 backdrop-blur-md modal-overlay-enter"
           onClick={() => setSelectedProduct(null)}
         >
           <div 
-            className="bg-white rounded-t-3xl sm:rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-gold-400/30 relative max-h-[92vh] flex flex-col"
+            className="bg-white rounded-t-3xl sm:rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-gold-400/30 relative max-h-[92vh] flex flex-col modal-content-enter"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
