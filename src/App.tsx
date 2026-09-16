@@ -12,6 +12,7 @@ import { QuoteModal } from './components/QuoteModal';
 import { ExpoSection } from './components/ExpoSection';
 import { ExpoInviteModal } from './components/ExpoInviteModal';
 import { MobileBottomBar } from './components/MobileBottomBar';
+import { PromoSection } from './components/PromoSection';
 
 export const App: React.FC = () => {
   const [lang, setLang] = useState<Language>('ar');
@@ -71,6 +72,12 @@ export const App: React.FC = () => {
         <Products
           lang={lang}
           onOpenQuoteWithProduct={handleOpenQuoteWithProduct}
+        />
+
+        {/* Exclusive Projects & Villas Promo Banner & Official Price Board */}
+        <PromoSection
+          lang={lang}
+          onOpenQuote={handleOpenGeneralQuote}
         />
 
         {/* Featured Projects Gallery */}

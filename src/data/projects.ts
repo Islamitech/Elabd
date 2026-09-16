@@ -12,7 +12,7 @@ export const projectsData: ProjectItem[] = [
     category: 'residential',
     materialsUsedAr: 'رخام داكن معالج، قص دقيق بالـ CNC، وشطف ميكانيكي',
     materialsUsedEn: 'Precision-Cut Dark Marble, CNC Grooving & LED Profiles',
-    image: '/showcase/exotic_063.jpg',
+    image: '/company/projects/stairs/marble_floating_stairs_led.jpg',
     year: '2025'
   },
   {
@@ -54,7 +54,7 @@ export const projectsData: ProjectItem[] = [
     category: 'commercial',
     materialsUsedAr: 'جرانيت دبل بلاك، ستاتواريو فيناتو، وتريستا رمادي',
     materialsUsedEn: 'Double Black Granite, Statuario Venato & Triesta Grey',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
+    image: '/identity/elabd_showroom_facade.jpg',
     year: '2025'
   },
   {
@@ -110,7 +110,7 @@ export const projectsData: ProjectItem[] = [
     category: 'residential',
     materialsUsedAr: 'كلكتا إيطالي بوكماتش مع تطعيمات نحاسية وذهبية',
     materialsUsedEn: 'Bookmatch Italian Calacatta with Brass Inlays',
-    image: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80',
+    image: '/identity/luxury_architectural_interior.jpg',
     year: '2023'
   }
 ];

@@ -9,10 +9,11 @@ interface HeroProps {
 }
 
 const backgroundImages = [
-  '/showcase/exotic_225.jpg',
-  '/showcase/exotic_122.jpg',
+  '/identity/showroom_panorama_cinematic.jpg',
+  '/identity/luxury_architectural_interior.jpg',
+  '/identity/elabd_showroom_facade.jpg',
   '/showcase/exotic_190.jpg',
-  '/showcase/exotic_038.jpg'
+  '/showcase/exotic_122.jpg'
 ];
 
 export const Hero: React.FC<HeroProps> = ({ lang, onOpenQuote }) => {
